@@ -12,14 +12,14 @@ canvas.pack()
 
 class Ball:
 
-    def __init__(self, canvas, color, x, y, up, down, left, right) -> None:
+    def __init__(self, canvas, color, x, y, up, down, left, right):
         self.canvas = canvas
         self.x = 0
         self.y = 0
-        self.id = canvas.create_oval(10, 10, 25, 25, fill=color)
+        self.id = canvas.create_oval(10,10, 25, 25, fill=color)
         self.canvas.move(self.id, x, y)
         self.canvas.bind_all(right, self.turn_right)
-        self.canvas.bind_all(left, self.left)
+        self.canvas.bind_all(left, self.turn_left)
         self.canvas.bind_all(up, self.turn_up)
         self.canvas.bind_all(down, self.turn_down)
         self.canvas_height = self.canvas.winfo_height()
@@ -64,8 +64,10 @@ class Ball:
         if pos[3] == self.canvas_height:
             self.y = 0
 
+ball_one = Ball(canvas, 'red', 150, 150, '<w>', '<s>', '<a>', '<d>')
 
 while not False:
+    ball_one.draw()
     tk.update_idletasks()
     tk.update()
     time.sleep(0.01)
