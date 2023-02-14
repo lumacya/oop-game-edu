@@ -13,56 +13,61 @@ canvas.pack()
 class Ball:
 
     def __init__(self, canvas, color, x, y, up, down, left, right):
-        self.canvas = canvas
-        self.x = 0
-        self.y = 0
-        self.id = canvas.create_oval(10,10, 25, 25, fill=color)
-        self.canvas.move(self.id, x, y)
-        self.canvas.bind_all(right, self.turn_right)
-        self.canvas.bind_all(left, self.turn_left)
-        self.canvas.bind_all(up, self.turn_up)
-        self.canvas.bind_all(down, self.turn_down)
-        self.canvas_height = self.canvas.winfo_height()
-        self.canvas_width = self.canvas.winfo_width()
+        self.__canvas = canvas
+        self.__x = 0
+        self.__y = 0
+        self.__id = canvas.create_oval(10,10, 25, 25, fill=color)
+        # self.__canvas.move(self.id, x, y)
+        # self.__canvas.bind_all(right, self.turn_right)
+        # self.__canvas.bind_all(left, self.turn_left)
+        # self.__canvas.bind_all(up, self.turn_up)
+        # self.__canvas.bind_all(down, self.turn_down)
+        self.__canvas_height = self.__canvas.winfo_height()
+        self.__canvas_width = self.__canvas.winfo_width()
 
-    def turn_right(self, event):
-        pos = self.canvas.coords(self.id)
-        if not pos[2] >= self.canvas_width:
-            self.x = 2
-            self.y = 0
+    def __turn_right(self, event):
+        # pos = self.__canvas.coords(self.__id)
+        # if not pos[2] >= self.__canvas_width:
+        #     self.__x = 2
+        #     self.__y = 0
+        pass
 
-    def turn_left(self, event):
-        pos = self.canvas.coords(self.id)
-        if not pos[0] <= 0:
-            self.x = -2
-            self.y = 0
-
-
-    def turn_up(self, event):
-        pos = self.canvas.coords(self.id)
-        if not pos[1] <= 0:
-            self.x = 0
-            self.y = -2
+    def __turn_left(self, event):
+        # pos = self.__canvas.coords(self.__id)
+        # if not pos[0] <= 0:
+        #     self.__x = -2
+        #     self.__y = 0
+        pass
 
 
-    def turn_down(self, event):
-        pos = self.canvas.coords(self.id)
-        if not pos[3] >= self.canvas_height:
-            self.x = 0
-            self.y = 2
+    def __turn_up(self, event):
+        # pos = self.__canvas.coords(self.__id)
+        # if not pos[1] <= 0:
+        #     self.__x = 0
+        #     self.__y = -2
+        pass
+
+
+    def __turn_down(self, event):
+        # pos = self.__canvas.coords(self.__id)
+        # if not pos[3] >= self.__canvas_height:
+        #     self.__x = 0
+        #     self.__y = 2
+        pass
 
     def draw(self):
-        self.canvas.move(self.id, self.x, self.y)
-        pos = self.canvas.coords(self.id)
+        # self.__canvas.move(self.__id, self.__x, self.__y)
+        # pos = self.__canvas.coords(self.__id)
 
-        if pos[0] <= 0:
-            self.x = 0
-        if pos[1] <= 0:
-            self.y = 0
-        if pos[2] == self.canvas_width:
-            self.x = 0
-        if pos[3] == self.canvas_height:
-            self.y = 0
+        # if pos[0] <= 0:
+        #     self.__x = 0
+        # if pos[1] <= 0:
+        #     self.__y = 0
+        # if pos[2] == self.__canvas_width:
+        #     self.__x = 0
+        # if pos[3] == self.canvas_height:
+        #     self.__y = 0
+        pass
 
 ball_one = Ball(canvas, 'red', 150, 150, '<w>', '<s>', '<a>', '<d>')
 
